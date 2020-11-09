@@ -1,53 +1,55 @@
 package item;
 
+import control.Constantes;
+
 /**
  *
  * @author moral
  */
 public class FabricaObjetos {
 
-    public static ObjetoCuracion crearVendas() {
-        int monto = 20;
-        return new ObjetoCuracion("Vendas", "Recupera " + monto + " puntos de vida.", monto);
+    public static Objeto crearVendas() {
+        double monto = Constantes.OBJ_Vendas_Bonus;
+        return new Objeto("Vendas", "Recupera " + monto + " puntos de vida.", monto, TipoObjeto.Vendas);
     }
 
-    public static ObjetoCuracion crearBotiquin() {
-        int monto = 50;
-        return new ObjetoCuracion("Botiquin", "Recupera " + monto + " puntos de vida.", monto);
+    public static Objeto crearBotiquin() {
+        double monto = Constantes.OBJ_Botiquin_Bonus;
+        return new Objeto("Botiquin", "Recupera " + monto + " puntos de vida.", monto, TipoObjeto.Botiquin);
     }
 
-    public static ObjetoEXP crearMedallaBronce() {
-        int bonusEXP = 15;
-        return new ObjetoEXP("Medalla de Bronce", "Otorga " + bonusEXP + " puntos de experiencia.", bonusEXP);
+    public static Objeto crearMedallaBronce() {
+        double bonusEXP = Constantes.OBJ_XPBronce_Bonus;
+        return new Objeto("Medalla de Bronce", "Otorga " + bonusEXP + " puntos de experiencia.", bonusEXP, TipoObjeto.XPBronce);
     }
 
-    public static ObjetoEXP crearMedallaPlata() {
-        int bonusEXP = 30;
-        return new ObjetoEXP("Medalla de Plata", "Otorga " + bonusEXP + " puntos de experiencia.", bonusEXP);
+    public static Objeto crearMedallaPlata() {
+        double bonusEXP = Constantes.OBJ_XPPlata_Bonus;
+        return new Objeto("Medalla de Plata", "Otorga " + bonusEXP + " puntos de experiencia.", bonusEXP, TipoObjeto.XPPlata);
     }
 
-    public static ObjetoEXP crearMedallaOro() {
-        int bonusEXP = 50;
-        return new ObjetoEXP("Medalla de Oro", "Otorga " + bonusEXP + " puntos de experiencia.", bonusEXP);
+    public static Objeto crearMedallaOro() {
+        double bonusEXP = Constantes.OBJ_XPOro_Bonus;
+        return new Objeto("Medalla de Oro", "Otorga " + bonusEXP + " puntos de experiencia.", bonusEXP, TipoObjeto.XPOro);
     }
 
-    public static ObjetoBoost crearTonicoAtaque() {
-        int bonus = 10;
-        return new ObjetoBoost("Tonico de Ataque", "Aumenta el ataque en un " + bonus + "%.", bonus);
+    public static Objeto crearTonicoAtaque() {
+        double bonus = Constantes.OBJ_BoostAtt_Bonus;
+        return new Objeto("Tonico de Ataque", "Aumenta el ataque en " + bonus + "puntos.", bonus, TipoObjeto.BoostAtt);
     }
 
-    public static ObjetoBoost crearTonicoDefensa() {
-        int bonus = 10;
-        return new ObjetoBoost("Tonico de Defensa", "Aumenta la defensa en un " + bonus + "%.", bonus);
+    public static Objeto crearTonicoDefensa() {
+        double bonus = Constantes.OBJ_BoostDef_Bonus;
+        return new Objeto("Tonico de Defensa", "Aumenta la defensa en un " + bonus + ".", bonus, TipoObjeto.BoostDef);
     }
 
-    public static ObjetoBoost crearBotas() {
-        int bonus = 2;
-        return new ObjetoBoost("Botas Aladas", "Permite moverse " + bonus + " casillas más.", bonus);
+    public static Objeto crearBotas() {
+        double bonus = Constantes.OBJ_Movim_Bonus;
+        return new Objeto("Botas Aladas", "Permite moverse " + bonus + " casillas más lejos.", bonus, TipoObjeto.Botas);
     }
 
-    public static ObjetoBoost crearMira() {
-        int bonus = 2;
-        return new ObjetoBoost("Mira", "Aumenta el alcance del siguiente ataque en " + bonus + " casillas.", bonus);
+    public static Objeto crearMira() {
+        double bonus = Constantes.OBJ_Alcance_Bonus;
+        return new Objeto("Mira", "Aumenta el alcance de los ataques en " + bonus + " casillas.", bonus, TipoObjeto.Mira);
     }
 }
