@@ -11,7 +11,6 @@ import java.util.*;
  */
 public class Personaje extends Entidad {
 
-    public String nombre;
     public double nivel, experiencia;
     public Arma armaEquipada;
     public List<HabilidadPJ> habilidades;
@@ -99,6 +98,7 @@ public class Personaje extends Entidad {
         }
     }
 
+    //Funcion utilizada para dañar a otra entidad. Retorna el valor del ruido creado.
     public double atacar(Entidad ent) {
         //Validacion Habilidad Demoledor
         if (isHabDesbloqueada(HabilidadPJ.Demoledor)) {

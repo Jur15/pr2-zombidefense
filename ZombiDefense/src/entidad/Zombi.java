@@ -12,6 +12,7 @@ public class Zombi extends Entidad {
     public HabilidadZO habilidad;
 
     public Zombi(HabilidadZO hab) {
+        this.nombre = "Zombi";
         this.habilidad = hab;
         this.vidaMax = Constantes.ZO_HPBase;
         //Validacion Habilidad Saludable
@@ -20,6 +21,10 @@ public class Zombi extends Entidad {
         }
         this.vidaActual = vidaMax;
         this.ataque = Constantes.ZO_AttBase;
+        //Validacion Habilidad Bruto
+        if(habilidad == HabilidadZO.Bruto) {
+            ataque += Constantes.ZO_HabBruto_Valor;
+        }
         this.defensa = Constantes.ZO_DefBase;
         //Validacion Habilidad Tanque
         if(habilidad == HabilidadZO.Tanque) {

@@ -6,6 +6,7 @@ package entidad;
  */
 public abstract class Entidad {
 
+    public String nombre;
     public double vidaMax, vidaActual, ataque, defensa;
     public int rangoMovimiento, rangoAtaque;
 

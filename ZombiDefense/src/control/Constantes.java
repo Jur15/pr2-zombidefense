@@ -48,6 +48,7 @@ public final class Constantes {
     //  Valores Habilidades
     public static final double ZO_HabSaludable_Valor = 1; //% de vida extra
     public static final double ZO_HabTanque_Valor = 1; //% de defensa extra
+    public static final double ZO_HabBruto_Valor = 10; //Puntos de ataque extra
     public static final double ZO_HabVampirismo_Valor = 0.5; //% del daño convertido en vida
     public static final double ZO_HabEspinas_Valor = 0.4; //% de daño regresado
 
