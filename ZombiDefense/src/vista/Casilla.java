@@ -1,15 +1,31 @@
 package vista;
 
+import entidad.Entidad;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author moral
  */
 public class Casilla extends javax.swing.JPanel {
 
+    public Entidad ocupante;
+    public boolean paredT, paredB, paredL, paredR;
+    
+    private final String urlImgParedT = "images/ParedT.png";
+    private final String urlImgParedB = "images/ParedB.png";
+    private final String urlImgParedL = "images/ParedL.png";
+    private final String urlImgParedR = "images/ParedR.png";
+
     /**
      * Creates new form Casilla
      */
-    public Casilla() {
+    public Casilla(boolean top, boolean bot, boolean left, boolean right) {
+        ocupante = null;
+        paredT = top;
+        paredB = bot;
+        paredL = left;
+        paredR = right;
         initComponents();
     }
 
@@ -22,22 +38,55 @@ public class Casilla extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(204, 204, 204));
-        setMaximumSize(new java.awt.Dimension(40, 40));
+        laParedT = new javax.swing.JLabel();
+        laParedB = new javax.swing.JLabel();
+        laParedL = new javax.swing.JLabel();
+        laParedR = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
+        setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        setMaximumSize(new java.awt.Dimension(39, 39));
+        setMinimumSize(new java.awt.Dimension(39, 39));
+        setPreferredSize(new java.awt.Dimension(39, 39));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        laParedT.setIcon(new ImageIcon(urlImgParedT));
+        laParedT.setAlignmentY(0.0F);
+        laParedT.setMaximumSize(new java.awt.Dimension(40, 40));
+        laParedT.setMinimumSize(new java.awt.Dimension(40, 40));
+        laParedT.setPreferredSize(new java.awt.Dimension(40, 40));
+        laParedT.setVisible(paredT);
+        add(laParedT, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        laParedB.setIcon(new ImageIcon(urlImgParedB));
+        laParedB.setAlignmentY(0.0F);
+        laParedB.setMaximumSize(new java.awt.Dimension(40, 40));
+        laParedB.setMinimumSize(new java.awt.Dimension(40, 40));
+        laParedB.setPreferredSize(new java.awt.Dimension(40, 40));
+        laParedB.setVisible(paredB);
+        add(laParedB, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        laParedL.setIcon(new ImageIcon(urlImgParedL));
+        laParedL.setAlignmentY(0.0F);
+        laParedL.setMaximumSize(new java.awt.Dimension(40, 40));
+        laParedL.setMinimumSize(new java.awt.Dimension(40, 40));
+        laParedL.setPreferredSize(new java.awt.Dimension(40, 40));
+        laParedL.setVisible(paredL);
+        add(laParedL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        laParedR.setIcon(new ImageIcon(urlImgParedR));
+        laParedR.setAlignmentY(0.0F);
+        laParedR.setMaximumSize(new java.awt.Dimension(40, 40));
+        laParedR.setMinimumSize(new java.awt.Dimension(40, 40));
+        laParedR.setPreferredSize(new java.awt.Dimension(40, 40));
+        laParedR.setVisible(paredR);
+        add(laParedR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel laParedB;
+    private javax.swing.JLabel laParedL;
+    private javax.swing.JLabel laParedR;
+    private javax.swing.JLabel laParedT;
     // End of variables declaration//GEN-END:variables
 }

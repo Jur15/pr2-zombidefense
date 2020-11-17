@@ -1,6 +1,7 @@
 package vista;
 
 import control.Constantes;
+import javax.swing.JPanel;
 
 /**
  *
@@ -38,6 +39,13 @@ public class TableroVista extends javax.swing.JFrame {
         laHP = new javax.swing.JLabel();
         laDef = new javax.swing.JLabel();
         laAtt = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        laHabs1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Zombi Defense");
@@ -48,18 +56,7 @@ public class TableroVista extends javax.swing.JFrame {
 
         paTablero.setMinimumSize(new java.awt.Dimension(800, 400));
         paTablero.setPreferredSize(new java.awt.Dimension(800, 400));
-
-        javax.swing.GroupLayout paTableroLayout = new javax.swing.GroupLayout(paTablero);
-        paTablero.setLayout(paTableroLayout);
-        paTableroLayout.setHorizontalGroup(
-            paTableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        paTableroLayout.setVerticalGroup(
-            paTableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-
+        paTablero.setLayout(new java.awt.GridLayout(10, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -72,7 +69,7 @@ public class TableroVista extends javax.swing.JFrame {
         laEntidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         laEntidad.setText("NombreEntidad");
 
-        laHabs.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        laHabs.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         laHabs.setText("Habilidad(es)");
 
         laHab1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -93,49 +90,100 @@ public class TableroVista extends javax.swing.JFrame {
         laAtt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         laAtt.setText("Ataque: 20");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel1.setText("Turno del Jugador");
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton1.setText("Mover");
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton2.setText("Atacar");
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton3.setText("Usar objeto");
+
+        laHabs1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        laHabs1.setText("Inventario");
+
+        jList1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
         javax.swing.GroupLayout paDetallleLayout = new javax.swing.GroupLayout(paDetallle);
         paDetallle.setLayout(paDetallleLayout);
         paDetallleLayout.setHorizontalGroup(
             paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paDetallleLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
                 .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(paDetallleLayout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(laHP)
-                            .addComponent(laDef)
-                            .addComponent(laAtt)))
-                    .addGroup(paDetallleLayout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(laEntidad)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 389, Short.MAX_VALUE)
+                    .addComponent(laHP)
+                    .addComponent(laDef)
+                    .addComponent(laAtt)
+                    .addComponent(laEntidad))
+                .addGap(50, 50, 50)
                 .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(laHabs)
                     .addComponent(laHab1)
                     .addComponent(laHab2)
                     .addComponent(laHab3))
-                .addGap(141, 141, 141))
+                .addGap(50, 50, 50)
+                .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(paDetallleLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(laHabs1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(68, 68, 68))
+            .addGroup(paDetallleLayout.createSequentialGroup()
+                .addGap(320, 320, 320)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        paDetallleLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton3});
+
         paDetallleLayout.setVerticalGroup(
             paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paDetallleLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(laEntidad)
-                    .addComponent(laHabs))
-                .addGap(18, 18, 18)
-                .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(laHab1)
-                    .addComponent(laHP))
-                .addGap(18, 18, 18)
-                .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(laHab2)
-                    .addComponent(laDef))
-                .addGap(18, 18, 18)
-                .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(laHab3)
-                    .addComponent(laAtt))
-                .addGap(0, 58, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(paDetallleLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(20, 20, 20)
+                        .addComponent(jButton2)
+                        .addGap(20, 20, 20)
+                        .addComponent(jButton3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, paDetallleLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(27, 27, 27)
+                        .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(laEntidad)
+                            .addComponent(laHabs)
+                            .addComponent(laHabs1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(paDetallleLayout.createSequentialGroup()
+                                .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(laHP)
+                                    .addComponent(laHab1))
+                                .addGap(15, 15, 15)
+                                .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(laDef)
+                                    .addComponent(laHab2))
+                                .addGap(15, 15, 15)
+                                .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(laAtt)
+                                    .addComponent(laHab3)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 25, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -150,6 +198,12 @@ public class TableroVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel laAtt;
     private javax.swing.JLabel laDef;
     private javax.swing.JLabel laEntidad;
@@ -158,10 +212,15 @@ public class TableroVista extends javax.swing.JFrame {
     private javax.swing.JLabel laHab2;
     private javax.swing.JLabel laHab3;
     private javax.swing.JLabel laHabs;
+    private javax.swing.JLabel laHabs1;
     private javax.swing.JPanel paDetallle;
     private javax.swing.JPanel paTablero;
     // End of variables declaration//GEN-END:variables
 
+    public JPanel getPanelTablero() {
+        return this.paTablero;
+    }
+    
     public void setTooltipNiveles() {
         laHab2.setToolTipText(tooltipNivelHab + Constantes.PJ_NivelHab2 + ".");
         laHab3.setToolTipText(tooltipNivelHab + Constantes.PJ_NivelHab3 + ".");
