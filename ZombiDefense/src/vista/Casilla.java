@@ -1,6 +1,8 @@
 package vista;
 
+import control.Constantes;
 import entidad.Entidad;
+import java.awt.Color;
 import javax.swing.ImageIcon;
 
 /**
@@ -9,24 +11,76 @@ import javax.swing.ImageIcon;
  */
 public class Casilla extends javax.swing.JPanel {
 
+    public int posFila, posCol;
     public Entidad ocupante;
+    //Banderas para paredes
     public boolean paredT, paredB, paredL, paredR;
-    
-    private final String urlImgParedT = "images/ParedT.png";
-    private final String urlImgParedB = "images/ParedB.png";
-    private final String urlImgParedL = "images/ParedL.png";
-    private final String urlImgParedR = "images/ParedR.png";
+    //Banderas para contenido de la casilla
+    public boolean castillo, spawner, inaccesible;
+    //Bandera para movimiento en la casilla
+    public boolean ocupada;
 
-    /**
-     * Creates new form Casilla
-     */
-    public Casilla(boolean top, boolean bot, boolean left, boolean right) {
+    //Constructor de Casillas sin paredes
+    public Casilla() {
+        paredT = false;
+        paredB = false;
+        paredL = false;
+        paredR = false;
+        castillo = false;
+        spawner = false;
+        ocupada = false;
         ocupante = null;
+        inaccesible = false;
+        initComponents();
+    }
+
+    //Constructor de Casillas con una o mas paredes
+    public Casilla(boolean top, boolean bot, boolean left, boolean right) {
         paredT = top;
         paredB = bot;
         paredL = left;
         paredR = right;
+        castillo = false;
+        spawner = false;
+        ocupada = false;
+        ocupante = null;
+        inaccesible = false;
         initComponents();
+    }
+
+    public void colocarCastillo() {
+        castillo = true;
+        ocupada = true;
+        laContenido.setIcon(new ImageIcon(Constantes.IMG_Castillo));
+    }
+
+    public void colocarSpawner() {
+        spawner = true;
+        ocupada = true;
+        laContenido.setIcon(new ImageIcon(Constantes.IMG_Spawner));
+    }
+
+    public void hacerInaccesible() {
+        inaccesible = true;
+        laContenido.setBackground(new Color(55, 55, 55));
+        laFondo.setIcon(new ImageIcon(Constantes.IMG_Inacc));
+    }
+
+    public void setPosicion(int f, int c) {
+        posFila = f;
+        posCol = c;
+    }
+
+    public void ocupar(Entidad ent) {
+        ocupada = true;
+        ocupante = ent;
+        laContenido.setIcon(new ImageIcon(ent.urlIcono));
+    }
+
+    public void desocupar() {
+        ocupada = false;
+        ocupante = null;
+        laContenido.setIcon(null);
     }
 
     /**
@@ -42,14 +96,15 @@ public class Casilla extends javax.swing.JPanel {
         laParedB = new javax.swing.JLabel();
         laParedL = new javax.swing.JLabel();
         laParedR = new javax.swing.JLabel();
+        laContenido = new javax.swing.JLabel();
+        laFondo = new javax.swing.JLabel();
 
-        setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        setMaximumSize(new java.awt.Dimension(39, 39));
-        setMinimumSize(new java.awt.Dimension(39, 39));
-        setPreferredSize(new java.awt.Dimension(39, 39));
+        setMaximumSize(new java.awt.Dimension(40, 40));
+        setMinimumSize(new java.awt.Dimension(40, 40));
+        setPreferredSize(new java.awt.Dimension(40, 40));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        laParedT.setIcon(new ImageIcon(urlImgParedT));
+        laParedT.setIcon(new ImageIcon(Constantes.IMG_ParedT));
         laParedT.setAlignmentY(0.0F);
         laParedT.setMaximumSize(new java.awt.Dimension(40, 40));
         laParedT.setMinimumSize(new java.awt.Dimension(40, 40));
@@ -57,7 +112,7 @@ public class Casilla extends javax.swing.JPanel {
         laParedT.setVisible(paredT);
         add(laParedT, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        laParedB.setIcon(new ImageIcon(urlImgParedB));
+        laParedB.setIcon(new ImageIcon(Constantes.IMG_ParedB));
         laParedB.setAlignmentY(0.0F);
         laParedB.setMaximumSize(new java.awt.Dimension(40, 40));
         laParedB.setMinimumSize(new java.awt.Dimension(40, 40));
@@ -65,7 +120,7 @@ public class Casilla extends javax.swing.JPanel {
         laParedB.setVisible(paredB);
         add(laParedB, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        laParedL.setIcon(new ImageIcon(urlImgParedL));
+        laParedL.setIcon(new ImageIcon(Constantes.IMG_ParedL));
         laParedL.setAlignmentY(0.0F);
         laParedL.setMaximumSize(new java.awt.Dimension(40, 40));
         laParedL.setMinimumSize(new java.awt.Dimension(40, 40));
@@ -73,17 +128,33 @@ public class Casilla extends javax.swing.JPanel {
         laParedL.setVisible(paredL);
         add(laParedL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        laParedR.setIcon(new ImageIcon(urlImgParedR));
+        laParedR.setIcon(new ImageIcon(Constantes.IMG_ParedR));
         laParedR.setAlignmentY(0.0F);
         laParedR.setMaximumSize(new java.awt.Dimension(40, 40));
         laParedR.setMinimumSize(new java.awt.Dimension(40, 40));
         laParedR.setPreferredSize(new java.awt.Dimension(40, 40));
         laParedR.setVisible(paredR);
         add(laParedR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        laContenido.setAlignmentY(0.0F);
+        laContenido.setMaximumSize(new java.awt.Dimension(39, 39));
+        laContenido.setPreferredSize(new java.awt.Dimension(39, 39));
+        add(laContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        laFondo.setIcon(new ImageIcon(Constantes.IMG_Pasto));
+        laFondo.setAlignmentY(0.0F);
+        laFondo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        laFondo.setMaximumSize(new java.awt.Dimension(40, 40));
+        laFondo.setMinimumSize(new java.awt.Dimension(40, 40));
+        laFondo.setName(""); // NOI18N
+        laFondo.setPreferredSize(new java.awt.Dimension(40, 40));
+        add(laFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel laContenido;
+    private javax.swing.JLabel laFondo;
     private javax.swing.JLabel laParedB;
     private javax.swing.JLabel laParedL;
     private javax.swing.JLabel laParedR;

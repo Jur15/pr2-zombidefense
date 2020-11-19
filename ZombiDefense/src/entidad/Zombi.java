@@ -13,6 +13,7 @@ public class Zombi extends Entidad {
 
     public Zombi(HabilidadZO hab) {
         this.nombre = "Zombi";
+        this.urlIcono = Constantes.IMG_Zombi;
         this.habilidad = hab;
         this.vidaMax = Constantes.ZO_HPBase;
         //Validacion Habilidad Saludable
@@ -33,6 +34,12 @@ public class Zombi extends Entidad {
         this.rangoMovimiento = Constantes.ZO_MovBase;
         this.rangoAtaque = Constantes.ZO_AlcBase;
         this.rangoVision = Constantes.ZO_VisBase;
+    }
+    
+    @Override
+    public void mover(int f, int c) {
+        this.posFila = f;
+        this.posCol = c;
     }
     
     @Override

@@ -1,6 +1,4 @@
-package control;
-
-import vista.Casilla;
+package vista;
 
 /**
  *
@@ -8,8 +6,8 @@ import vista.Casilla;
  */
 public class FabricaCasillas {
 
-    public static Casilla crearCasilla(String caracter) {
-        switch (caracter) {
+    public static Casilla crearCasilla(String codigo) {
+        switch (codigo) {
             //Esquinas
             case "r":
                 return new Casilla(true, false, true, false);
@@ -42,9 +40,24 @@ public class FabricaCasillas {
                 return new Casilla(true, false, true, true);
             case "V":
                 return new Casilla(false, true, true, true);
+            //Castillo
+            case "C":
+                Casilla c = new Casilla();
+                c.colocarCastillo();
+                return c;
+            //Spawner
+            case "S":
+                Casilla s = new Casilla();
+                s.colocarSpawner();
+                return s;
+            //Casilla inaccesible
+            case "X":
+                Casilla i = new Casilla();
+                i.hacerInaccesible();
+                return i;
             //Casilla vacia
             default:
-                return new Casilla(false, false, false, false);
+                return new Casilla();
         }
     }
 }

@@ -1,6 +1,12 @@
 package vista;
 
 import control.Constantes;
+import item.Objeto;
+import java.awt.Component;
+import java.util.ArrayList;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 
 /**
@@ -8,15 +14,16 @@ import javax.swing.JPanel;
  * @author moral
  */
 public class TableroVista extends javax.swing.JFrame {
-
-    private String tooltipNivelHab = "Se consigue en el nivel ";
     
+    private String tooltipNivelHab = "Se consigue en el nivel ";
+
     /**
      * Creates new form Tablero
      */
     public TableroVista() {
         initComponents();
         setTooltipNiveles();
+        ocultarDetalles();
     }
 
     /**
@@ -39,13 +46,23 @@ public class TableroVista extends javax.swing.JFrame {
         laHP = new javax.swing.JLabel();
         laDef = new javax.swing.JLabel();
         laAtt = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        laHabs1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        laEstado = new javax.swing.JLabel();
+        botMover = new javax.swing.JButton();
+        botAtacar = new javax.swing.JButton();
+        botObj = new javax.swing.JButton();
+        laInven = new javax.swing.JLabel();
+        paInven = new javax.swing.JScrollPane();
+        lisInven = new javax.swing.JList<>();
+        lisInven.setCellRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                Component renderer = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                if (renderer instanceof JLabel && value instanceof Objeto) {
+                    ((JLabel) renderer).setText(((Objeto) value).nombre);
+                }
+                return renderer;
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Zombi Defense");
@@ -90,65 +107,63 @@ public class TableroVista extends javax.swing.JFrame {
         laAtt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         laAtt.setText("Ataque: 20");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel1.setText("Turno del Jugador");
+        laEstado.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        laEstado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        laEstado.setText("Turno del Jugador");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton1.setText("Mover");
+        botMover.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botMover.setText("Mover");
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton2.setText("Atacar");
+        botAtacar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botAtacar.setText("Atacar");
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton3.setText("Usar objeto");
+        botObj.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        botObj.setText("Usar objeto");
 
-        laHabs1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        laHabs1.setText("Inventario");
+        laInven.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        laInven.setText("Inventario");
 
-        jList1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
+        lisInven.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lisInven.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        paInven.setViewportView(lisInven);
 
         javax.swing.GroupLayout paDetallleLayout = new javax.swing.GroupLayout(paDetallle);
         paDetallle.setLayout(paDetallleLayout);
         paDetallleLayout.setHorizontalGroup(
             paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paDetallleLayout.createSequentialGroup()
+            .addGroup(paDetallleLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(laHP)
-                    .addComponent(laDef)
-                    .addComponent(laAtt)
-                    .addComponent(laEntidad))
-                .addGap(50, 50, 50)
-                .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(laHabs)
-                    .addComponent(laHab1)
-                    .addComponent(laHab2)
-                    .addComponent(laHab3))
-                .addGap(50, 50, 50)
-                .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(paDetallleLayout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(laHabs1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68))
-            .addGroup(paDetallleLayout.createSequentialGroup()
-                .addGap(320, 320, 320)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(laEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(paDetallleLayout.createSequentialGroup()
+                        .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(laHP)
+                            .addComponent(laDef)
+                            .addComponent(laAtt)
+                            .addComponent(laEntidad))
+                        .addGap(50, 50, 50)
+                        .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(laHabs)
+                            .addComponent(laHab1)
+                            .addComponent(laHab2)
+                            .addComponent(laHab3))
+                        .addGap(50, 50, 50)
+                        .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(paInven, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(paDetallleLayout.createSequentialGroup()
+                                .addGap(81, 81, 81)
+                                .addComponent(laInven)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                        .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(botAtacar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botObj, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botMover, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(68, 68, 68))))
         );
 
-        paDetallleLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton3});
+        paDetallleLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {botAtacar, botMover, botObj});
 
         paDetallleLayout.setVerticalGroup(
             paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,18 +171,18 @@ public class TableroVista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(paDetallleLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(botMover)
                         .addGap(20, 20, 20)
-                        .addComponent(jButton2)
+                        .addComponent(botAtacar)
                         .addGap(20, 20, 20)
-                        .addComponent(jButton3))
+                        .addComponent(botObj))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, paDetallleLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(laEstado)
                         .addGap(27, 27, 27)
                         .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(laEntidad)
                             .addComponent(laHabs)
-                            .addComponent(laHabs1))
+                            .addComponent(laInven))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(paDetallleLayout.createSequentialGroup()
@@ -182,7 +197,7 @@ public class TableroVista extends javax.swing.JFrame {
                                 .addGroup(paDetallleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                                     .addComponent(laAtt)
                                     .addComponent(laHab3)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(paInven, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 25, Short.MAX_VALUE))
         );
 
@@ -198,22 +213,22 @@ public class TableroVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton botAtacar;
+    private javax.swing.JButton botMover;
+    private javax.swing.JButton botObj;
     private javax.swing.JLabel laAtt;
     private javax.swing.JLabel laDef;
     private javax.swing.JLabel laEntidad;
+    private javax.swing.JLabel laEstado;
     private javax.swing.JLabel laHP;
     private javax.swing.JLabel laHab1;
     private javax.swing.JLabel laHab2;
     private javax.swing.JLabel laHab3;
     private javax.swing.JLabel laHabs;
-    private javax.swing.JLabel laHabs1;
+    private javax.swing.JLabel laInven;
+    private javax.swing.JList<Objeto> lisInven;
     private javax.swing.JPanel paDetallle;
+    private javax.swing.JScrollPane paInven;
     private javax.swing.JPanel paTablero;
     // End of variables declaration//GEN-END:variables
 
@@ -225,4 +240,66 @@ public class TableroVista extends javax.swing.JFrame {
         laHab2.setToolTipText(tooltipNivelHab + Constantes.PJ_NivelHab2 + ".");
         laHab3.setToolTipText(tooltipNivelHab + Constantes.PJ_NivelHab3 + ".");
     }
+    
+    public void ocultarDetalles() {
+        laEstado.setText("Selecciona algo para ver más detalles.");
+        laEstado.setVisible(true);
+        laEntidad.setVisible(false);
+        laHP.setVisible(false);
+        laDef.setVisible(false);
+        laAtt.setVisible(false);
+        laHabs.setVisible(false);
+        laHab1.setVisible(false);
+        laHab2.setVisible(false);
+        laHab3.setVisible(false);
+        laInven.setVisible(false);
+        paInven.setVisible(false);
+        botMover.setVisible(false);
+        botAtacar.setVisible(false);
+        botObj.setVisible(false);
+    }
+    
+    public void actulizarStats(String nombre, String vida, String def, String att, String[] habilidades) {
+        laEstado.setVisible(false);
+        laEntidad.setText(nombre);
+        laEntidad.setVisible(true);
+        laHP.setText("HP: " + vida);
+        laHP.setVisible(true);
+        laDef.setText("Defensa: " + def);
+        laDef.setVisible(true);
+        laAtt.setText("Ataque: " + att);
+        laAtt.setVisible(true);
+        laHabs.setVisible(true);
+        laHab1.setVisible(true);
+        if (habilidades.length == 1) {
+            laHab1.setText(habilidades[0]);
+        } else {
+            laHab1.setText(habilidades[0]);
+            laHab2.setText(habilidades[1]);
+            laHab2.setVisible(true);
+            laHab3.setText(habilidades[2]);
+            laHab3.setVisible(true);
+        }
+    }
+    
+    public void actualizarInven(ArrayList<Objeto> inv) {
+        laInven.setVisible(true);
+        paInven.setVisible(true);
+        lisInven.setModel(new ArrayList_ListModel<>(inv));
+    }
+    
+    public void setAccionMover(boolean estado) {
+        botAtacar.setVisible(true);
+        botAtacar.setEnabled(estado);
+    }
+    
+    public void setAccionAtacar(boolean estado) {
+        botMover.setVisible(true);
+        botMover.setEnabled(estado);
+    }
+    
+    public void setAccionUsarObj(boolean estado) {
+        botObj.setVisible(true);
+        botObj.setEnabled(estado);
+    }    
 }

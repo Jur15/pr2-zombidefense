@@ -70,41 +70,44 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="laHP" min="-2" max="-2" attributes="0"/>
-                      <Component id="laDef" min="-2" max="-2" attributes="0"/>
-                      <Component id="laAtt" min="-2" max="-2" attributes="0"/>
-                      <Component id="laEntidad" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="2" attributes="0">
-                      <Component id="laHabs" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="laHab1" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="laHab2" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="laHab3" alignment="2" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="236" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                          <Component id="laHabs1" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="laEstado" min="-2" pref="735" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="laHP" min="-2" max="-2" attributes="0"/>
+                              <Component id="laDef" min="-2" max="-2" attributes="0"/>
+                              <Component id="laAtt" min="-2" max="-2" attributes="0"/>
+                              <Component id="laEntidad" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="2" attributes="0">
+                              <Component id="laHabs" alignment="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="laHab1" alignment="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="laHab2" alignment="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="laHab3" alignment="2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="paInven" min="-2" pref="236" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                                  <Component id="laInven" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="65" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="2" attributes="0">
+                              <Component id="botAtacar" linkSize="1" alignment="2" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="botObj" linkSize="1" alignment="2" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="botMover" linkSize="1" alignment="2" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="65" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="2" attributes="0">
-                      <Component id="jButton2" linkSize="1" alignment="2" min="-2" pref="100" max="-2" attributes="0"/>
-                      <Component id="jButton3" linkSize="1" alignment="2" min="-2" pref="100" max="-2" attributes="0"/>
-                      <Component id="jButton1" linkSize="1" alignment="2" min="-2" pref="100" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="320" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="132" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -114,19 +117,19 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="botMover" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="botAtacar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botObj" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="laEstado" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="2" attributes="0">
                               <Component id="laEntidad" alignment="2" min="-2" max="-2" attributes="0"/>
                               <Component id="laHabs" alignment="2" min="-2" max="-2" attributes="0"/>
-                              <Component id="laHabs1" alignment="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="laInven" alignment="2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -146,7 +149,7 @@
                                       <Component id="laHab3" alignment="2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="jScrollPane1" min="-2" pref="92" max="-2" attributes="0"/>
+                              <Component id="paInven" min="-2" pref="92" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -220,15 +223,16 @@
             <Property name="text" type="java.lang.String" value="Ataque: 20"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="laEstado">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="2"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Turno del Jugador"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="botMover">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
@@ -236,7 +240,7 @@
             <Property name="text" type="java.lang.String" value="Mover"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="botAtacar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
@@ -244,7 +248,7 @@
             <Property name="text" type="java.lang.String" value="Atacar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="botObj">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
@@ -252,7 +256,7 @@
             <Property name="text" type="java.lang.String" value="Usar objeto"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="laHabs1">
+        <Component class="javax.swing.JLabel" name="laInven">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
@@ -260,30 +264,23 @@
             <Property name="text" type="java.lang.String" value="Inventario"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+        <Container class="javax.swing.JScrollPane" name="paInven">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JList" name="jList1">
+            <Component class="javax.swing.JList" name="lisInven">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
-                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                  <StringArray count="5">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                    <StringItem index="4" value="Item 5"/>
-                  </StringArray>
-                </Property>
+                <Property name="selectionMode" type="int" value="0"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="lisInven.setCellRenderer(new DefaultListCellRenderer() {&#xd;&#xa;            @Override&#xd;&#xa;            public Component getListCellRendererComponent(JList&lt;?&gt; list, Object value, int index, boolean isSelected, boolean cellHasFocus) {&#xd;&#xa;                Component renderer = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);&#xd;&#xa;                if (renderer instanceof JLabel &amp;&amp; value instanceof Objeto) {&#xd;&#xa;                    ((JLabel) renderer).setText(((Objeto) value).nombre);&#xd;&#xa;                }&#xd;&#xa;                return renderer;&#xd;&#xa;            }&#xd;&#xa;        });"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Objeto&gt;"/>
               </AuxValues>
             </Component>
           </SubComponents>

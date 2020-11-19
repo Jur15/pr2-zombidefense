@@ -18,8 +18,9 @@ public class Personaje extends Entidad {
     public boolean habRetiradaActiva, habFuriosoActiva;
 
     //Constructor
-    public Personaje(String nombre, List<HabilidadPJ> habil) {
+    public Personaje(String nombre, String urlIcono, List<HabilidadPJ> habil) {
         this.nombre = nombre;
+        this.urlIcono = urlIcono;
         this.habilidades = habil;
         this.vidaMax = Constantes.PJ_HPBase;
         //Validacion Habilidad Saludable
@@ -51,6 +52,12 @@ public class Personaje extends Entidad {
         this.habFuriosoActiva = false;
     }
 
+    @Override
+    public void mover(int f, int c) {
+        this.posFila = f;
+        this.posCol = c;
+    }
+    
     @Override
     public double recibirDano(double dano) {
         double total = dano - defensa;

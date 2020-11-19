@@ -63,6 +63,20 @@ public final class Constantes {
     public static final double OBJ_Movim_Bonus = 1;
     public static final double OBJ_Alcance_Bonus = 1;
 
+    //Interfaz
+    public static final String IMG_ParedT = "images/ParedT.png";
+    public static final String IMG_ParedB = "images/ParedB.png";
+    public static final String IMG_ParedL = "images/ParedL.png";
+    public static final String IMG_ParedR = "images/ParedR.png";
+    public static final String IMG_Castillo = "images/Castillo.png";
+    public static final String IMG_Spawner = "images/Spawner.png";
+    public static final String IMG_Pasto = "images/Pasto.png";
+    public static final String IMG_Inacc = "images/Inaccesible.png";
+    public static final String IMG_PJNinja = "images/PJ_Ninja.png";
+    public static final String IMG_PJCaballero = "images/PJ_Caballero.png";
+    public static final String IMG_PJNigromante = "images/PJ_Nigromante.png";
+    public static final String IMG_Zombi = "images/Zombi.png";
+
     private Constantes() {
     }
 ;
