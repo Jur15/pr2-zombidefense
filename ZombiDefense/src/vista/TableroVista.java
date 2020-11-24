@@ -236,7 +236,7 @@ public class TableroVista extends javax.swing.JFrame {
         return this.paTablero;
     }
     
-    public void setTooltipNiveles() {
+    private void setTooltipNiveles() {
         laHab2.setToolTipText(tooltipNivelHab + Constantes.PJ_NivelHab2 + ".");
         laHab3.setToolTipText(tooltipNivelHab + Constantes.PJ_NivelHab3 + ".");
     }
